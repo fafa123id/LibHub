@@ -9,6 +9,10 @@
     <title>User Profile</title>
 </head>
 <style>
+    #utama{
+            max-height: 80vh;
+            
+        }
     .scale{
         scale: 100%;
     }
@@ -52,28 +56,19 @@
     @media(max-height:350px){
         #utama{
             scale:60%;
-            height: 200px;
-            flex-direction: row;
-        }
-        #klog{
-            flex-direction: column;
+            margin-top: 20vh;
+            height: 300px;
             
         }
-        #isiuser{
-            margin-left: 40px;
-        }
-        #edit{
-            margin-left: 40px;
-        }
-        #editin{
-            transform: translateY(-20%);
-        }
+        
+        
     }
     .maxin{
         max-width: 200px;
     }
+    
 </style>
-<body class="bg-gray-200 bg-center bg-cover h-screen flex items-center justify-center" style="background-image: url(./public/assets/perpus.jpg);">
+<body class="bg-gray-200 bg-center bg-cover h-screen flex items-center justify-center overflow-hidden" style="background-image: url(./public/assets/perpus.jpg);">
     <div id="header" class="bg-base-100 flex place-self-start">
         <div class="navbar bg-base-100 w-full fixed z-20">
           <div id="isi" class="w-full gap-3">
@@ -169,19 +164,22 @@
             <a href="profile.html" class="text-blue-500 hover:underline">Kembali ke User Profile</a>
         </div>
 
-    </div></div> 
+    </div>
+</div> 
 
     <!-- Container Utama -->
-    <div id="utama" class="bg-white p-8 rounded shadow-md mx-auto max-w-2xl scale w-full h-fit flex flex-col justify-self-center items-center relative bg-opacity-90">
-
-        <!-- Profile Image -->
+    
+    <div id="utama" class="bg-white p-8 rounded shadow-md mx-auto max-w-2xl w-full h-fit flex flex-col justify-self-center items-center relative bg-opacity-90 fixed overflow-auto">
+        <div class="">
+             <!-- Profile Image -->
         <div class="flex flex-col">
             <div class="w-10 rounded-full place-self-center">
                 <img src="./public/assets/pp.gif" alt="Profile Image" class="w-20 h-10 rounded-full mb-4 ">
             </div>
     
             <!-- Nama User -->
-            <h2 id="namaisi" class="text-xl font-semibold text-gray-800 mb-2">Nama User</h2>
+            <div class="maxin"><p id="namaisi" class="text-center text-xl font-semibold text-gray-800 mb-2 break-words">Nama User</p></div>
+            
         </div>
         
 
@@ -228,6 +226,8 @@
         <!-- Tombol Logout -->
         
         </div>
+        </div>
+       
         
 
     </div>
