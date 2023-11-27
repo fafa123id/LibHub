@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../dist/output.css"/>
+  <title>Halaman Riwayat Peminjaman</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+   @media(max-height:400px){
+  
+        #gerakmang{
+            scale: 80%
+        }
+    }
+    @media(max-height:300px){
+
+    #gerakmang{
+            scale: 70%
+        }
+    }
+  </style>
+</head>
+<body>
+  <div id="header" class="bg-base-100 flex">
+    <div class="navbar bg-base-100 w-full fixed z-20">
+      <div id="isi" class="w-full gap-3">
+        <div class="flex-1">
+          <a onclick="window.location.href='index.html'" class="btn btn-ghost normal-case text-xl scales">LibHub</a>
+        </div>
+        
+        
+        <div id="profil" class="flex">
+          <div>
+            <button onclick="window.location.href='cart.html'" class="scales btn transition-all btn-circle w-full">
+              <i class="fa fa-shopping-cart text-3xl"></i>
+              <i id="icon" class="animate-pulse mb-6 text-red-500 bg-opacity-40 p-1 rounded-full font-Jakarta font-bold">0</i>
+            </button>
+          </div>
+          
+          <div  class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img src="../public/assets/pp.gif" />
+              </div>
+            </label>
+            <ul id="drop" tabindex="0" class="mt-1  z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-36">
+              <li>
+                <a href="./profile.html" class="justify-between">
+                  Profile
+                </a>
+              </li>
+              <li onclick="window.location.href='faq.html'"><a>FAQ</a></li>
+              <li><a href="./riwayat.html">Riwayat</a></li>
+              <li><a onclick="logout()">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="log" class="hidden">
+          <button id="" onclick="window.location.href='login.html'" class="scales transition-all rounded-3xl p-3 bg-blue-400 text-black btn btn-ghost">
+            Login
+            
+            </button>
+            <button id="" onclick="window.location.href='register.html'" class="scales transition-all rounded-3xl p-3 bg-blue-400 text-black btn btn-ghost">
+              Register
+              
+              </button>
+        
+        </div>
+      </div>
+     
+        
+        
+
+    
+    </div>
+  </div>
+<div class="container mx-auto p-4 bg-slate-800 mt-20">
+  <!-- Tab bar -->
+  <div class="flex flex-wrap border-b">
+    <button class="tab w-full sm:w-auto py-2 px-4 text-blue-600 border-b-2 border-blue-600 font-medium" data-target="#sedang-dipinjam">Sedang Dipinjam</button>
+    <button class="tab w-full sm:w-auto py-2 px-4 text-gray-600 hover:text-blue-600 hover:border-blue-600 font-medium" data-target="#sudah-dipinjam">Sudah Dipinjam</button>
+    <button class="tab w-full sm:w-auto py-2 px-4 text-gray-600  hover:text-blue-600 hover:border-blue-600 font-medium" data-target="#reservasi">Reservasi</button>
+  </div>
+  
+  <!-- Content for 'Sedang Dipinjam' -->
+  <div id="sedang-dipinjam" class="tab-content mt-4">
+    <!-- List container -->
+    <div id="isisedang" class="flex flex-col space-y-4">
+      <!-- Individual item -->
+      
+      
+      
+      <!-- Repeat for more items -->
+      <!-- ... -->
+    </div>
+  </div>
+
+  <!-- Content for 'Sudah Dipinjam' -->
+  <div id="sudah-dipinjam" class="tab-content mt-4 hidden">
+    <!-- Similar structure to 'Sedang Dipinjam' -->
+    <div id="sudahpinjam" class="flex flex-col space-y-4">
+    <!-- ... -->
+       
+    
+    </div>
+  </div>
+
+  <!-- Content for 'Reservasi' -->
+  <div id="reservasi" class="tab-content mt-4 hidden">
+    <!-- Similar structure to 'Sedang Dipinjam' -->
+    <!-- ... -->
+    <div id="reservasiisi" class="flex flex-col space-y-4">
+       
+          
+  </div>
+</div>
+<div id="berhasil" class="overflow-auto flex p-2 h-screen w-screen fixed left-0 top-0 ml-0 mr-0 mb-0 mt-0 bg-fixed bg-black bg-opacity-50 hidden">
+  <div id="gerakmang" class="bg-white w-fit rounded-3xl shadow-lg my-auto mx-auto max-w-xs selection:fixed">
+    <div class="border-b-2 spacing-1 px-4 py-2">
+      <h3 class="text-black text-center">Ingin Mengembalikan buku?</h3>
+    </div>
+    <div class="text-center p-4">
+      <p>Apa kamu yakin ingin mengembalikan buku ini?</p>
+    </div>
+    <div class="p-4 flex">
+      <button id="okff" type="click" class="items-center w-full mx-auto my-auto bg-blue-500 text-white p-2 rounded-3xl hover:bg-green-700 transition">Iya </button>
+      <button id="ok" onclick="window.location.reload(true)" type="click" class="items-center w-full mx-auto my-auto bg-red-500 text-white p-2 rounded-3xl hover:bg-green-700 transition">Tidak</button>
+    </div>
+  </div>
+</div>
+
+<div id="yakin" class="overflow-auto flex p-2 h-screen w-screen fixed left-0 top-0 ml-0 mr-0 mb-0 mt-0 bg-fixed bg-black bg-opacity-50 hidden">
+  <div id="gerakmang" class="bg-white w-fit rounded-3xl shadow-lg my-auto mx-auto max-w-xs selection:fixed">
+    <div class="border-b-2 spacing-1 px-4 py-2">
+      <h3 class="text-black text-center">Ingin Membatalkan reservasi?</h3>
+    </div>
+    <div class="text-center p-4">
+      <p>Apa kamu yakin ingin membatalkan reservasi buku ini?</p>
+    </div>
+    <div class="p-4 flex">
+      <button id="okf" type="click" class="items-center w-full mx-auto my-auto bg-blue-500 text-white p-2 rounded-3xl hover:bg-green-700 transition">Iya </button>
+      <button id="oka" onclick="document.getElementById('yakin').classList.add('hidden')" type="click" class="items-center w-full mx-auto my-auto bg-red-500 text-white p-2 rounded-3xl hover:bg-green-700 transition">Tidak</button>
+    </div>
+  </div>
+</div>
+
+</body>
+
+
+<script>
+  // JS untuk tab-switching
+  document.addEventListener('DOMContentLoaded', function() {
+    var tabs = document.querySelectorAll('.tab');
+    var contents = document.querySelectorAll('.tab-content');
+  
+    tabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = document.querySelector(tab.getAttribute('data-target'));
+        
+        // Sembunyikan semua konten dan hapus kelas aktif dari semua tab
+        contents.forEach(function(content) { content.classList.add('hidden'); });
+        tabs.forEach(function(t) { t.classList.remove('border-blue-600', 'text-blue-600','border-b-2'); t.classList.add('text-gray-600'); });
+        
+        // Tampilkan konten yang sesuai dengan tab yang diklik dan tambahkan kelas aktif
+        target.classList.remove('hidden');
+        tab.classList.remove('text-gray-600', 'hover:text-blue-600', 'hover:border-blue-600');
+                    tab.classList.add('border-b-2', 'border-blue-600', 'text-blue-600');
+      });
+    });
+  });
+</script>
+<script src="./riwayat.js"></script>
+
+</body>
+</html>
