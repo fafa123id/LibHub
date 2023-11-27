@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../dist/output.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>User Profile</title>
+</head>
+<style>
+    .scale{
+        scale: 100%;
+    }
+    @media(max-width:500px){
+        #klog{
+            flex-direction: column;
+            
+        }
+    }
+    @media(max-width:750px){
+        #utama{
+            scale:80%
+        }
+        #editin{
+            scale:80%
+        }
+    }
+    @media(max-height:650px){
+        #utama{
+            scale:60%;
+            margin-top: 18vh;
+        }
+        #editin{
+            scale:60%;
+            
+        }
+    }
+    @media(max-height:500px){
+        #editin{
+            scale:60%;
+            flex-direction: row;
+        }
+        #pp{
+            margin-right: 2rem;
+        }
+        #form{
+            margin-right: 2rem;
+        }
+    }
+    
+    @media(max-height:350px){
+        #utama{
+            scale:60%;
+            height: 200px;
+            flex-direction: row;
+        }
+        #klog{
+            flex-direction: column;
+            
+        }
+        #isiuser{
+            margin-left: 40px;
+        }
+        #edit{
+            margin-left: 40px;
+        }
+        #editin{
+            transform: translateY(-20%);
+        }
+    }
+    .maxin{
+        max-width: 200px;
+    }
+</style>
+<body class="bg-gray-200 bg-center bg-cover h-screen flex items-center justify-center" style="background-image: url(../public/assets/perpus.jpg);">
+    <div id="header" class="bg-base-100 flex place-self-start">
+        <div class="navbar bg-base-100 w-full fixed z-20">
+          <div id="isi" class="w-full gap-3">
+            <div class="flex-1">
+              <a onclick="window.location.href='index.html'" class="btn btn-ghost normal-case text-xl scales">LibHub</a>
+            </div>
+            
+            <div id="profil" class="flex">
+                <div>
+                  <button onclick="window.location.href='cart.html'" class="scales btn transition-all btn-circle w-full">
+                    <i class="fa fa-shopping-cart text-3xl"></i>
+                    <i id="icon" class="animate-pulse mb-6 text-red-500 bg-opacity-40 p-1 rounded-full font-Jakarta font-bold">0</i>
+                  </button>
+                </div>
+                
+                <div  class="dropdown dropdown-end">
+                  <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                      <img src="../public/assets/pp.gif" />
+                    </div>
+                  </label>
+                  <ul id="drop" tabindex="0" class="mt-1  z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-36">
+                    <li>
+                      <a href="./profile.html" class="justify-between">
+                        Profile
+                      </a>
+                    </li>
+                    <li onclick="window.location.href='faq.html'"><a>FAQ</a></li>
+                    <li><a href="./riwayat.html">Riwayat</a></li>
+                    <li><a onclick="logout()">Logout</a></li>
+                  </ul>
+                </div>
+              </div>
+            
+            <div id="log" class="hidden">
+              <button id="" onclick="window.location.href='faq.html'" class="scales transition-all rounded-3xl p-3 bg-blue-400 text-black btn btn-ghost r">
+                FAQ
+                
+                </button>
+              <button id="" onclick="window.location.href='login.html'" class="scales transition-all rounded-3xl p-3 bg-blue-400 text-black btn btn-ghost">
+                Login
+                
+                </button>
+                <button id="" onclick="window.location.href='register.html'" class="scales transition-all rounded-3xl p-3 bg-blue-400 text-black btn btn-ghost">
+                  Register
+                  
+                  </button>
+                  
+            
+            </div>
+          </div>
+         
+            
+            
+
+        
+        </div>
+      </div>
+    <div id="prof" class="h-screen w-screen flex fixed bg-cover bg-black bg-opacity-50 z-30 hidden">
+        <div id="editin" class="bg-white p-8 rounded shadow-md max-w-md mx-auto h-fit my-auto flex flex-col">
+
+        
+        <h1>Kosongkan jika tidak ada perubahan</h2>
+        <!-- Form Edit Profile -->
+        <form id="form">
+            <!-- Nama User -->
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-bold mb-2">Nama User:</label>
+                <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Nama User">
+            </div>
+
+            <!-- Email User -->
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-bold mb-2">Email User:</label>
+                <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="email@example.com">
+            </div>
+
+            <!-- Tanggal Lahir User -->
+            <div class="mb-4">
+                <label for="birthdate" class="block text-gray-700 font-bold mb-2">Tanggal Lahir:</label>
+                <input type="date" id="birthdate" name="birthdate" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="2000-01-01">
+            </div>
+
+            <!-- Tombol Simpan -->
+            <button id="simpan" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
+                Simpan
+            </button>
+        </form>
+
+        <!-- Kembali ke User Profile -->
+        <div id="tombol" class="mt-4 text-center place-self-center">
+            
+            <a href="profile.html" class="text-blue-500 hover:underline">Kembali ke User Profile</a>
+        </div>
+
+    </div></div> 
+
+    <!-- Container Utama -->
+    <div id="utama" class="bg-white p-8 rounded shadow-md mx-auto max-w-2xl scale w-full h-fit flex flex-col justify-self-center items-center relative bg-opacity-90">
+
+        <!-- Profile Image -->
+        <div class="flex flex-col">
+            <div class="w-10 rounded-full place-self-center">
+                <img src="../public/assets/pp.gif" alt="Profile Image" class="w-20 h-10 rounded-full mb-4 ">
+            </div>
+    
+            <!-- Nama User -->
+            <h2 id="namaisi" class="text-xl font-semibold text-gray-800 mb-2">Nama User</h2>
+        </div>
+        
+
+        <!-- Placeholder sebelah kanan -->
+        <div id="isiuser" class="gap-4 mb-4">
+            <div class="maxin">
+                <p class="text-gray-600">Email:</p>
+            <p id="emailisi" class="text-gray-600 break-words">[Email User]</p>
+            </div>
+            <div>
+            <p class="text-gray-600">Tanggal Lahir:</p>
+            <p id="lahirisi" class="text-gray-600">[Tanggal Lahir User]</p>
+            </div>
+
+            
+        </div>
+
+        <!-- Tombol Edit Profile -->
+        <div id="edit" class="flex flex-col ">
+            <button onclick="document.getElementById('prof').classList.remove('hidden')" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue place-self-center mt-4">
+                Edit Profile
+            </button>
+    
+            <button onclick="window.location.href='faq.html'" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue place-self-center mt-4">
+                Bantuan dan Dukungan
+            </button>
+        </div>
+        
+        <div id="klog" class="flex flex-row mt-5 gap-2 w-full">
+            <!-- Tombol Ke Halaman Keranjang -->
+        <div class="flex-1 place-self-center">
+            <button onclick="window.location.href='cart.html'" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 focus:outline-none focus:shadow-outline-green left-0 bottom-0 mb-4  ">
+                Keranjang Saya
+            </button>
+        </div>
+        <div class="place-self-center">
+            <button onclick="localStorage.setItem('login',false)
+        window.location.href='index.html'" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 focus:outline-none focus:shadow-outline-red right-0 bottom-0 mb-4 ">
+            Logout
+        </button>
+        </div>
+        
+
+        <!-- Tombol Logout -->
+        
+        </div>
+        
+
+    </div>
+<script src="./profil.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>

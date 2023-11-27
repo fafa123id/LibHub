@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../dist/output.css"/>
+    <title>FAQ</title>
+</head>
+<style>
+  <!--css note-->
+    #pp{
+    height: fit-content;
+    
+    }
+    #accordion-collapse{
+      margin-top: 80px;
+    }
+    @media (max-width: 300px){
+    #isi {
+    flex-direction: column;
+    }
+    #accordion-collapse{
+      padding-top: 50px;
+    }
+    #isiweb{
+      padding-top: 186px;
+    }
+    #search{
+      width: 80vw;
+    }
+    #isikonten{
+      scale:80%;
+    }
+     #all{
+      display: block;
+    }
+    #menu{
+      flex-direction: column;
+    }
+    #komp{
+      width:240px
+    }
+    
+  
+  }
+    @media(max-width:500px){
+        #pp{
+          scale: 80%;
+          
+        }
+        #pk{
+          transform:translateX(-20%);
+          
+        }
+        body{
+            font-size: 14px;
+        }
+    }
+    @media(max-width:350px){
+        #pp{
+        scale: 70%;
+        }
+        body{
+            font-size: 80%;
+        }
+    }
+    @media(max-height:600px){
+        #pp{
+        scale: 90%;
+        }
+        body{
+            font-size: 12px;
+        }
+    }
+    @media(max-height:450px){
+        #pp{
+        scale: 80%;
+        }
+        body{
+            font-size: 12px;
+        }
+    }
+    @media(max-height:350px){
+        #pp{
+        scale: 70%;
+        }
+        body{
+            font-size: 12px;
+        }
+    }
+    .chatcontent{
+      grid-row-gap: 1rem;
+    }
+    .flexend{
+      align-self: flex-end;
+    }
+    .maxw2{
+      max-width: 80%;
+    }
+    #texta::-webkit-scrollbar{
+      display: none;
+    }
+    #chatcontent::-webkit-scrollbar{
+        display: none;
+    }
+    #texta{
+      scrollbar-width: none;
+    }
+    #containerpesan{
+      z-index: 0;
+      opacity: 0;
+      transition: .5s;
+    }
+    #containerpesan.show{
+      transition: 1.5s;
+      opacity: 100;
+    }
+    #containerpesan.maju{
+      z-index: 30;
+    }
+</style>
+<body class="bg-cover bg-center bg-fixed flex">
+  <div id="header" class="bg-base-100 flex">
+    <div class="navbar bg-base-100 w-full fixed z-20">
+      <div id="isi" class="w-full gap-3">
+        <div class="flex-1">
+          <a onclick="window.location.href='index.html'" class="btn btn-ghost normal-case text-xl scales">LibHub</a>
+        </div>
+        
+        <div id="profil" class="flex">
+          <div>
+            <button onclick="window.location.href='cart.html'" class="scales btn transition-all btn-circle w-full">
+              <i class="fa fa-shopping-cart text-3xl"></i>
+              <i id="icon" class="animate-pulse mb-6 text-red-500 bg-opacity-40 p-1 rounded-full font-Jakarta font-bold">0</i>
+            </button>
+          </div>
+          
+          <div  class="dropdown dropdown-end">
+            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+              <div class="w-10 rounded-full">
+                <img src="../public/assets/pp.gif" />
+              </div>
+            </label>
+            <ul id="drop" tabindex="0" class="mt-1  z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-36">
+              <li>
+                <a href="./profile.html" class="justify-between">
+                  Profile
+                </a>
+              </li>
+              <li onclick="window.location.href='faq.html'"><a>FAQ</a></li>
+              <li><a href="./riwayat.html">Riwayat</a></li>
+              <li><a onclick="logout()">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div id="log" class="hidden ">
+          <button id="" onclick="window.location.href='login.html'" class="scales transition-all rounded-3xl p-3 bg-blue-400 font-bold text-black btn btn-ghost">
+            Login
+            
+            </button>
+            <button id="" onclick="window.location.href='register.html'" class="scales transition-all rounded-3xl p-3 bg-blue-400 font-bold text-black btn btn-ghost">
+              Register
+              
+              </button>
+        
+        </div>
+      </div>
+     
+        
+        
+
+    
+    </div>
+  </div>
+<div id="accordion-collapse" data-accordion="collapse" class="z-10 w-full">
+  <h2 id="accordion-collapse-heading-2">
+    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+      <span>Apa itu LibHub?</span>
+      <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+      </svg>
+    </button>
+  </h2>
+  <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+    <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+      <p class="mb-2 text-gray-500 dark:text-gray-400">LibHub adalah...</p>
+      <p class="text-gray-500 dark:text-gray-400">Aplikasi perpustakaan berbasis digital untuk mempermudah akses masyarakat dalam pinjam-meminjam buku</p>
+    </div>
+  </div>
+    <h2 id="accordion-collapse-heading-1">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+        <span>Bagaimana cara saya mendaftar sebagai anggota LibHub?</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+      <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Anda dapat mendaftar sebagai anggota perpustakaan dengan mengisi formulir pendaftaran. </p>
+        <p id="sudah" class="mb-2 text-gray-500 dark:text-gray-400 hidden">Anda sudah menjadi anggota</p>
+        <p id="belum" class="text-gray-500 dark:text-gray-400">Anda dapat mendaftar <a href="register.html" class="text-blue-600 dark:text-blue-500 hover:underline">disini</a>.</p>
+      </div>
+    </div>
+    
+    <h2 id="accordion-collapse-heading-3">
+      <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+        <span>Bagaimana cara saya meminjam buku dari perppustakaan ini?</span>
+        <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        </svg>
+      </button>
+    </h2>
+    <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+      <div class="p-5 border border-t-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Mendaftar keanggotaan</p>
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Login</p>
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Memilih buku</p>
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Menambahkan ke keranjang</p>
+        <p class="mb-2 text-gray-500 dark:text-gray-400">Mengonfirmasi peminjaman</p>
+      </div>
+    </div>
+    <h2 id="accordion-collapse-heading-4">
+        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-4" aria-expanded="true" aria-controls="accordion-collapse-body-4">
+          <span>Apa syarat dan ketentuan peminjaman buku?</span>
+          <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+          </svg>
+        </button>
+      </h2>
+      <div id="accordion-collapse-body-4" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+          <p class="mb-2 text-gray-500 dark:text-gray-400">Anda wajib menjadi anggota LibHub</p>
+          <p class="mb-2 text-gray-500 dark:text-gray-400">Buku yang dipinjam adalah yang stoknya tersedia</p>
+          <p class="mb-2 text-gray-500 dark:text-gray-400">Buku yang dipinjam wajib dikembalikan dalam kurun waktu yang ditentukan</p>
+          <p class="mb-2 text-gray-500 dark:text-gray-400">Keterlambatan akan dikenai denda sesuai laman konfirmasi</p>
+          <p class="mb-2 text-gray-500 dark:text-gray-400">Buku hilang/rusak anggota harus mengganti</p>
+        </div>
+      </div>
+     
+      <h2 id="accordion-collapse-heading-5">
+        <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3" data-accordion-target="#accordion-collapse-body-5" aria-expanded="true" aria-controls="accordion-collapse-body-5">
+          <span>Anda Masih Punya Pertanyaan Lebih?</span>
+          <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+          </svg>
+        </button>
+      </h2>
+      <div id="accordion-collapse-body-5" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+        <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+          <p class="mb-2 text-gray-500 dark:text-gray-400">Anda Bisa Mencoba Fitur Live Chat di Bawah Ini </p>
+          <button onclick="wow()" class="bg-blue-300 mx-auto my-auto z-10 flex p-2 rounded-3xl hover:bg-green-800 transition-all text-black">Live Chat</button>
+        </div>
+      </div>
+  </div>
+  <div id="containerpesan" class="containerpesan flex bg-cover bg-white overflow-auto bg-opacity-50 h-full w-full ml-0 mr-0 mb-0 mt-0 bg-fixed fixed">
+    <div id="pp" class=" overflow-y-auto container mx-auto p-2 my-auto w-full">
+      
+      <div  class="bg-gray-800 outline-purple-800 p-6 max-w-xl mx-auto rounded-3xl bg-opacity-80 z-0 ">
+        <div id="chatcontent" class="chatcontent mb-3 flex-col flex w-full overflow-auto p-3 rounded-2xl max-h-96 bg-white space-y-2">
+          <div id="spanchat" class="flex-col flex w-full rounded-2xl  space-y-2 max-h-none h-full">
+              
+               
+          </div>
+          
+          
+          <div id="buttonya" class=" bg-black maxw2 p-4 rounded-3xl self-end">
+              <div class="">
+                  <button id="buttA" onclick="clicktemp(this)" class="bg-white p-2 mb-3 rounded-xl hover:bg-blue-500 transition-all text-black">Berapa denda keterlambatan?</button>
+                  <button id="buttB" onclick="clicktemp(this)"  class="bg-white p-2 mb-3 rounded-xl hover:bg-blue-500 transition-all text-black">Berapa denda kerusakan/kehilangan buku?</button>
+                  <button id="buttC" onclick="clicktemp(this)"  class="bg-white p-2 mb-3 rounded-xl hover:bg-blue-500 transition-all text-black">Bagaimana andai stok buku kosong?</button>
+                  <button id="buttD" onclick="clicktemp(this)"  class="bg-white p-2 mb-3 rounded-xl hover:bg-blue-500 transition-all text-black">Bolehkah meminjam lebih dari 1 buku?</button>
+                  <button id="buttE" onclick="clicktemp(this)"  class="bg-white p-2 mb-3 rounded-xl hover:bg-blue-500 transition-all text-black">LiveChat dengan CS</button>
+              </div>   
+          </div>
+          
+           
+        </div>
+        <div id="classpesan" class="mx-auto my-auto pb-3 hidden">
+          <div id="form"class="items-center flex">
+            <textarea id="texta" class="resize-none border-none outline-none bg-blue-600 w-full rounded-3xl p-3 text-white" name="" id="" rows="1" placeholder="ketikkan pesan"></textarea>
+            <button onclick="kirimpesan()" class="bg-white rounded-3xl ml-1 w-fit hover:bg-green-600 transition-all p-3 text-black" type="submit">Kirim</button>
+          </div>
+        </div>  
+        <button onclick="wowilang()" class="bg-white rounded-3xl w-full p-1 hover:bg-green-600 transition-all text-black" type="submit">Back</button>
+        <button id="classlive" onclick="keluarlive()" class="bg-red-500 rounded-3xl w-md p-1 mx-auto my-auto mt-3 w-full hover:bg-green-600 transition-all text-black hidden" type="submit">Keluar dari Live Chat</button>
+
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <!--KODE BUAT CHAT AKHIR-->
+  
+  <!--KODE BUAT CHAT MULAI-->
+ 
+   
+ 
+
+  <script src="./scriptLiveChat.js">
+    
+</script>
+</body>
+</html>
